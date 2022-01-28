@@ -50,6 +50,35 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "serv": [
+            "composer app-clear-cache",
+            "php artisan serv"
+        ],
+        "serv-simple": [
+            "php artisan config:cache",
+            "php artisan config:clear",
+            "php artisan cache:clear",
+            "php artisan optimize",
+            "php artisan serv"
+        ],
+        "app-clear-cache": [
+            "composer install",
+            "echo \"--> clear-compiled\"",
+            "php artisan clear-compiled",
+            "echo \"--> dump-autoload\"",
+            "composer dump-autoload",
+            "echo \"--> Helpers\"",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan ide-helper:models --nowrite",
+            "echo \"--> Config\"",
+            "php artisan config:cache ;",
+            "php artisan config:clear ;",
+            "echo \"--> Cache\"",
+            "php artisan cache:clear ;",
+            "echo \"--> Optimizing\"",
+            "php artisan optimize"
         ]
     },
     "extra": {
