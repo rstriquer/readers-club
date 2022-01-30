@@ -1,0 +1,42 @@
+@startuml User book CRUD diagram
+
+
+set namespaceSeparator ::
+
+class HomeIndexPublicController extends Inertia::Controller {}
+
+abstract UserAreaController extends Routing::controller {
+    - BookService service
+}
+note top of BookService
+    both get and store are colled
+    by BookFormUserAreaController
+endnote
+class BookService {
+    - Book $service
+    + Collection list
+    + void delete
+    + UserBook get
+    + UserBook store
+}
+class BookListUserAreaController extends UserAreaController
+class BookStoreUserAreaController extends UserAreaController {
+    + __invoke(StoreBookUserRequest $request)
+}
+class BookDeleteUserAreaController extends UserAreaController {}
+class BookFormUserAreaController extends UserAreaController {
+    + __invoke(? UserBook $userBook)
+}
+class StoreBookUserRequest extends FormRequest {
+    ISBN_10
+    ISBN_13
+    title
+    authors[]
+    pageCount
+    thumbnail
+}
+
+UserAreaController - BookService
+StoreBookUserRequest *-- BookStoreUserAreaController
+
+@enduml

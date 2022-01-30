@@ -1,0 +1,51 @@
+@startuml Database Relation
+
+entity Authors {
+    + string name
+    + HasMany authorBooks
+}
+entity AuthorBooks {
+    - primary(book,author)
+    + BelongsTo book
+    + BelongsTo author
+}
+entity Book {
+    + string title
+    + string pageCount
+    + string thumbnail
+    + string preview
+    + string ISBN_10
+    + string ISBN_13
+    + HasMany authorBooks
+    + HasMany userBookReview
+    + HasMany userBook
+}
+entity UserBook {
+    + date readingFrom
+    + date readingTo
+    + tinyint stars
+    + BelongsTo book
+    + HasMany userBookReview
+}
+entity UserBookReview {
+    + created_at
+    + updated_at
+    + deleted_at
+    + HasOne userBook
+    + BelongsTo book
+}
+entity UserBookNotes {
+    + string note
+    + created_at
+    + updated_at
+    + BelongsTo userBook
+}
+
+AuthorBooks }|--|| Authors
+AuthorBooks }|--|| Book
+UserBook }|--|| Book
+UserBookReview |o--|| UserBook
+UserBookReview }o--|| Book
+UserBookNotes }o--|| UserBook
+
+@enduml
