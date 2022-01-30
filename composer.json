@@ -53,10 +53,10 @@
             "@php artisan key:generate --ansi"
         ],
         "docker-up": [
-            "(cd ~/projetos/docker/git/LAMPBase ; /usr/bin/docker-compose up -d)"
+            "docker-compose up -d"
         ],
         "docker-down": [
-            "(cd ~/projetos/docker/git/LAMPBase ; /usr/bin/docker-compose down)"
+            "docker-compose down"
         ],
         "show-logs": [
             "tail -f storage/logs/*"
