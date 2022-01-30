@@ -1,0 +1,30 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-color: #017199;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2, h1 {
+    font-family: 'Righteous', sans-serif;
+}
+
+#header {
+    font-size: 3rem;
+}
+
+.book-list {
+    margin-top: 50px;
+}
+
+.card-body {
+    background-color: white;
+    margin: 20px;
+    border-radius: 0.5rem;
+}
+
+.card-img {
+    background-image: url("../img/noimage.png");
+}
