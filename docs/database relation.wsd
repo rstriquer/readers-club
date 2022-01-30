@@ -14,12 +14,20 @@ entity Book {
     + string pageCount
     + string thumbnail
     + string preview
-    + string ISBN_10
-    + string ISBN_13
+    + string isbn
+    + string id_api
     + HasMany authorBooks
     + HasMany userBookReview
     + HasMany userBook
 }
+note right of Book::isbn
+    Usar ISBN para buscas internas
+endnote
+note right of Book::id_api
+    Usar id_api para armazenar o ID
+    do livro na API e para acessar
+    detalhes do livro na API
+endnote
 entity UserBook {
     + date readingFrom
     + date readingTo
