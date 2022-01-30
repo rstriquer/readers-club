@@ -11,8 +11,22 @@ class BookList extends React.Component {
                 <div className="row mt-4">
                 {
                     this.props.books.map((book, i) => {
+                        let isbn_10 = '', isbn_13 = ''
+                        book.volumeInfo?.industryIdentifiers.map((value) => {
+                            switch (value.type) {
+                                case "ISBN_10":
+                                    isbn_10 = value.identifier
+                                    break;
+                                case "ISBN_13":
+                                    isbn_13 = value.identifier
+                                    break;
+                            }
+                        })
                         return <BookCard
                             key={i}
+                            id_api={book.id}
+                            isbn_10={isbn_10}
+                            isbn_13={isbn_13}
                             image={book.volumeInfo.imageLinks?.smallThumbnail}
                             title={book.volumeInfo.title}
                             previewLink={book.volumeInfo.previewLink}

@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
 import NoImage from "../../../img/noimage.png"
+import { usePage } from '@inertiajs/inertia-react'
 
 class BookCard extends React.Component {
     constructor(props) {
         super(props)
+    }
+
+    AddToMyCollection(props, destiny) {
+        const { auth } = usePage().props
+        let $href = "/login"
+
+        if (auth != null) {
+            $href = "/user-area/" + (props.book?.isbn_13 ? props.book?.isbn_13 : props.book?.isbn_10)
+        }
+        return (<a href={$href} className="btn btn-primary ms-2 end">Tenho em Minha Coleção</a>)
     }
     render() {
         return(
@@ -19,7 +30,7 @@ class BookCard extends React.Component {
                             <p className="fw-light">Editora: {this.props.publisher}</p>
                             <p className="fw-light">Edição: {this.props.published}</p>
                             <a target="_blank" href={this.props.previewLink} className="btn btn-light">Preview</a>
-                            <a target="_blank" href={this.props.previewLink} className="btn btn-primary ms-2">Explore</a>
+                            <this.AddToMyCollection book={this.props} />
                         </div>
                     </div>
                 </div>
