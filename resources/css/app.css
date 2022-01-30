@@ -1,8 +1,8 @@
 body {
     background-image: url("../img/background.jpg");
-    background-color: #017199;
+    background-color: #00a0e2;
     height: 100%;
-    background-position: center;
+    background-position: right top;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -23,6 +23,7 @@ h2, h1 {
     background-color: white;
     margin: 20px;
     border-radius: 0.5rem;
+    max-width: 500px;
 }
 
 .card-img {
