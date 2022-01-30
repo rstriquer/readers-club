@@ -18,7 +18,8 @@ class BookCard extends React.Component {
                             <p className="fw-light">Autor: {this.props.author}</p>
                             <p className="fw-light">Editora: {this.props.publisher}</p>
                             <p className="fw-light">Edição: {this.props.published}</p>
-                            <a target="_blank" href={this.props.previewLink} className="btn btn-secondary">Preview</a>
+                            <a target="_blank" href={this.props.previewLink} className="btn btn-light">Preview</a>
+                            <a target="_blank" href={this.props.previewLink} className="btn btn-primary ms-2">Explore</a>
                         </div>
                     </div>
                 </div>
