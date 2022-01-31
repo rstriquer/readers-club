@@ -14,7 +14,7 @@ class BookCard extends React.Component {
         if (auth != null) {
             $href = "/user-area/" + (props.book?.isbn_13 ? props.book?.isbn_13 : props.book?.isbn_10)
         }
-        return (<a href={$href} className="btn btn-primary ms-2 end">Tenho em Minha Coleção</a>)
+        return (<a href={$href} className="btn btn-primary ms-2 end">Adicionar Livro</a>)
     }
     render() {
         return(
