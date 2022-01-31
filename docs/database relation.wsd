@@ -16,6 +16,7 @@ entity Book {
     + string preview
     + string isbn
     + string id_api
+    + BelongsTo publisher
     + HasMany authorBooks
     + HasMany userBookReview
     + HasMany userBook
@@ -28,11 +29,13 @@ note right of Book::id_api
     do livro na API e para acessar
     detalhes do livro na API
 endnote
+entity User {}
 entity UserBook {
     + date readingFrom
     + date readingTo
     + tinyint stars
     + BelongsTo book
+    + BelongsTo user
     + HasMany userBookReview
 }
 entity UserBookReview {
@@ -48,12 +51,18 @@ entity UserBookNotes {
     + updated_at
     + BelongsTo userBook
 }
+entity Publisher {
+    + string name
+}
 
 AuthorBooks }|--|| Authors
 AuthorBooks }|--|| Book
 UserBook }|--|| Book
+UserBook }|--|| User
+UserBookNotes }|--|| User
 UserBookReview |o--|| UserBook
 UserBookReview }o--|| Book
 UserBookNotes }o--|| UserBook
+Book }o--|| Publisher
 
 @enduml
