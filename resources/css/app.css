@@ -5,6 +5,7 @@ body {
     background-position: right top;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Nunito', sans-serif;
 }
 
 h2, h1 {
@@ -23,9 +24,18 @@ h2, h1 {
     background-color: white;
     margin: 20px;
     border-radius: 0.5rem;
-    max-width: 500px;
 }
 
 .card-img {
     background-image: url("../img/noimage.png");
+}
+
+.star-unselected {
+    color: #e4e5e9;
+    cursor: pointer;
+}
+
+.star-selected {
+    color:#ffc107;
+    cursor: pointer;
 }

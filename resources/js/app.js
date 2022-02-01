@@ -4,6 +4,7 @@ import { createInertiaApp } from '@inertiajs/inertia-react'
 import { InertiaProgress } from '@inertiajs/progress'
 
 require('./bootstrap');
+require('./components/Ratings/index.js');
 
 InertiaProgress.init()
 createInertiaApp({
