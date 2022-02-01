@@ -6,6 +6,8 @@
 /public/build
 /public/images
 /public/mix-manifest.json
+/public/fonts
+/docs/build
 /storage/*.key
 /vendor
 .env
