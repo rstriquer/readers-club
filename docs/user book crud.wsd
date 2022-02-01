@@ -28,12 +28,12 @@ class BookGetUserAreaController extends UserAreaController {
     + __invoke(? UserBook $userBook)
 }
 class StoreBookUserRequest extends FormRequest {
-    ISBN_10
-    ISBN_13
-    title
-    authors[]
-    pageCount
-    thumbnail
+    + ISBN_10
+    + ISBN_13
+    + title
+    + authors[]
+    + pageCount
+    + thumbnail
 }
 
 UserAreaController - BookService
