@@ -10,7 +10,7 @@ abstract UserAreaController extends Routing::controller {
 }
 note top of BookService
     both get and store are colled
-    by BookFormUserAreaController
+    by BookGetUserAreaController
 endnote
 class BookService {
     - Book $service
@@ -24,7 +24,7 @@ class BookStoreUserAreaController extends UserAreaController {
     + __invoke(StoreBookUserRequest $request)
 }
 class BookDeleteUserAreaController extends UserAreaController {}
-class BookFormUserAreaController extends UserAreaController {
+class BookGetUserAreaController extends UserAreaController {
     + __invoke(? UserBook $userBook)
 }
 class StoreBookUserRequest extends FormRequest {
