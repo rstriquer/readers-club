@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
+        "@fortawesome/fontawesome-free": "^5.15.4",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
         "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
