@@ -10,7 +10,7 @@ class UserAreaController extends Controller
 {
     use AuthorizesRequests;
 
-    private BookService $service;
+    protected BookService $service;
     public function __invoke(string $isbn)
     {
         $this->service = app(BookService::class);
