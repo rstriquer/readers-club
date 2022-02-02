@@ -41,22 +41,8 @@ class CreateBaseProjectSchema extends Migration
             $table->date('reading_from')->useCurrent();
             $table->date('reading_to')->nullable()->comment('Can be null for user could be starting the reading');
             $table->tinyInteger('rating')->comment('User perception of ranking book quality');
+            $table->text('review');
             $table->foreignId('book_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->timestamps();
-        });
-        Schema::create('user_book_notes', function (Blueprint $table) {
-            $table->id();
-            $table->text('note');
-            $table->foreignId('user_book_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->timestamps();
-        });
-        Schema::create('user_book_review', function (Blueprint $table) {
-            $table->id();
-            $table->text('note');
-            $table->foreignId('book_id')->constrained();
-            $table->foreignId('user_book_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
@@ -69,8 +55,6 @@ class CreateBaseProjectSchema extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_book_review');
-        Schema::dropIfExists('user_book_notes');
         Schema::dropIfExists('user_books');
         Schema::dropIfExists('author_books');
         Schema::dropIfExists('authors');
