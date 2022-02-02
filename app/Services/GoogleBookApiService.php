@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use App\Models\Author;
-use App\Models\UserBook;
+use App\Services\Contracts\ApiServiceInterface;
 use GuzzleHttp\Client;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 
-class GoogleBookApiInterfaceService
+class GoogleBookApiService implements ApiServiceInterface
 {
     const PARTNER_CACHE_KEY = 'google.isbn.';
 
+    /**
+     * @inheritDoc
+     */
     public function getCachedData(string $isbn) : array
     {
         $result = Cache::get(self::PARTNER_CACHE_KEY . $isbn);
