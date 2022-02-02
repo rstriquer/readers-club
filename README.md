@@ -3,7 +3,8 @@ readers club built in Laravel and React
 
 ## Demonstrated features:
 System to illustrate the construction of a Laravel Inertia React application that will consume an API.
-- Consumes Google Book API
+- Use of translate;
+- Consumes Google Book API;
 - Makes use of the "(Laravel) contracts pattern" enabling easy future partner changes;
 - Illustrates use of some relations structures from Laravel/Eloquent ORM;
 - Implements feature test of route;
