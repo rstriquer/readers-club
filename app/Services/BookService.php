@@ -6,8 +6,10 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\Publisher;
 use App\Models\UserBook;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -33,7 +35,7 @@ class BookService
         } catch(ModelNotFoundException $err) {
             try {
                 DB::beginTransaction();
-                $partnerData = app(GoogleBookApiInterfaceService::class)
+                $partnerData = app(GoogleBookApiService::class)
                     ->getCachedData($isbn);
 
                 $book = Book::create([
@@ -73,5 +75,29 @@ class BookService
             }
         }
         return $book;
+    }
+    /**
+     * Creates a new or update UserBook on database
+     * @param \Illuminate\Http\Request $request
+     * @param string $isbn
+     * @throws Exception
+     */
+    public function storeUserBook(Request $request, string $isbn) : UserBook
+    {
+        $userBook = $this->getUserBook($isbn);
+        try {
+            DB::beginTransaction();
+            if ( ! $userBook ) {
+                $userBook = $this->userBook;
+                $userBook->user()->associate(auth()->user());
+                $userBook->book()->associate($this->getBook($isbn));
+            }
+            $userBook->fill($request->input())->save();
+            DB::commit();
+            return $userBook;
+        } catch (Exception $err) {
+            DB::rollBack();
+            throw $err;
+        }
     }
 }
