@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserBook;
 use App\Services\BookService;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
-use Illuminate\View\View;
 
-abstract class UserAreaController extends Controller
+class UserAreaController extends Controller
 {
+    use AuthorizesRequests;
+
     private BookService $service;
-    abstract public function __invoke(string $isbn) : View;
+    public function __invoke(string $isbn)
+    {
+        $this->service = app(BookService::class);
+        $this->authorize('user.identified');
+    }
 }
