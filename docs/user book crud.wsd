@@ -20,7 +20,7 @@ class BookService {
     + UserBook store
 }
 class BookListUserAreaController extends UserAreaController
-class BookStoreUserAreaController extends UserAreaController {
+class BookStoreUserAreaController {
     + __invoke(StoreBookUserRequest $request)
 }
 class BookDeleteUserAreaController extends UserAreaController {}
@@ -36,7 +36,8 @@ class StoreBookUserRequest extends FormRequest {
     + thumbnail
 }
 
-UserAreaController - BookService
+UserAreaController -right- BookService
+BookStoreUserAreaController -left- BookService
 StoreBookUserRequest *-- BookStoreUserAreaController
 
 @enduml
