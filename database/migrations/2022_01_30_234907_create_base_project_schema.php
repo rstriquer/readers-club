@@ -41,7 +41,7 @@ class CreateBaseProjectSchema extends Migration
             $table->date('reading_from')->useCurrent();
             $table->date('reading_to')->nullable()->comment('Can be null for user could be starting the reading');
             $table->tinyInteger('rating')->comment('User perception of ranking book quality');
-            $table->text('review');
+            $table->text('review')->nullable();
             $table->foreignId('book_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
