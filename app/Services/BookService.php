@@ -8,6 +8,7 @@ use App\Models\Publisher;
 use App\Models\UserBook;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,13 @@ class BookService
             ->whereHas('book', function(Builder $query) use ($isbn) {
                 $query->whereIsbn($isbn);
             })->get()->first();
+    }
+    public function getUserBooks() : Collection
+    {
+        return $this->userBook
+            ->with('book')
+            ->whereUserId(auth()->user()->id)
+            ->get();
     }
     public function getBook(string $isbn) : Book
     {
