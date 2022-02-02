@@ -18,13 +18,13 @@ $title = 'Adding new book to my library';
             <p class="fw-light">{{ __('Page count') }}: {{ $userBook->book->pageCount }}</p>
 
             {{ Form::label(null, __('Your ratings'), ['class' => 'control-label']) }}
-            {!! Form::rating('ratings', data_get($userBook, 'rating', 0)) !!}<br />
+            {!! Form::rating('rating', data_get($userBook, 'rating', 0)) !!}<br />
 
             {{ Form::label('reading_from', __('Reading since'), ['class' => 'control-label']) }}
             {{ Form::date('reading_from', data_get($userBook, 'reading_from'), ['class' => 'form-control']) }} <br />
 
-            {{ Form::label('reading_from', __('Finish reading'), ['class' => 'control-label']) }}
-            {{ Form::date('reading_from', data_get($userBook, 'reading_from'), ['class' => 'form-control']) }} <br />
+            {{ Form::label('reading_to', __('Finish reading'), ['class' => 'control-label']) }}
+            {{ Form::date('reading_to', data_get($userBook, 'reading_to'), ['class' => 'form-control']) }} <br />
 
             {{ Form::label('review', __('Write a review'), ['class' => 'control-label']) }}
             {{ Form::TextArea('review', data_get($userBook, 'review'), ['class' => 'form-control']) }} <br />

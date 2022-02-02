@@ -24,7 +24,7 @@ const Ratings = () => {
     )
 }
 
-var domContainer = document.querySelector('#ratings')
+var domContainer = document.querySelector('#rating')
 if (domContainer) {
     ReactDOM.render(e(Ratings), domContainer);
 }
