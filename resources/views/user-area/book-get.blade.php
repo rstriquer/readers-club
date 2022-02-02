@@ -10,11 +10,12 @@ $title = 'Adding new book to my library';
             <img src="{{ $book['thumbnail'] }}">
         </div>
         <div class="col-md-8">
-            <h5 class="fw-bold">{{ $book['title'] }}</h5>
-            <p class="fw-light">{{ __('Authors') }}: {{ $book['authors'] }}</p>
-            <p class="fw-light">{{ __('Publisher') }}: {{ $book['publisher'] }}</p>
+            <h1 class="fw-bold">{{ $book['title'] }}</h1>
+            <h5 class="fw-bold">{{ __('Authors') }}: {{ $book['authors'] }}</h5>
+            <h5 class="fw-light">{{ __('ISBN') }}: {{ $book['isbn'] }}</h5>
             <p class="fw-light">{{ __('Publisher') }}: {{ $book['publisher'] }}</p>
             <p class="fw-light">{{ __('Published') }}: {{ $book['published'] }}</p>
+            <p class="fw-light">{{ __('Page count') }}: {{ $book['pageCount'] }}</p>
 
             {{ Form::label(null, __('Your ratings'), ['class' => 'control-label']) }}
             {!! Form::rating('ratings', $userBook->stars ?? 0) !!}<br />
