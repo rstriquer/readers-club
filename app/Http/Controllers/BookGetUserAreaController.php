@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserBook;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Cache;
+use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
@@ -25,9 +24,9 @@ class BookGetUserAreaController extends UserAreaController
             }
             return view('user-area.book-get', [
                 'userBook' => $userBook,
-                'form' => [ 'url' => '/' ],
+                'form' => [ 'url' => route('user-area.post.isbn', ['isbn' => $isbn]) ],
             ]);
-        } catch (\Exception $err) {
+        } catch (Exception $err) {
             Log::error($err);
             throw $err;
         }
