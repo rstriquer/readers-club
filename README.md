@@ -45,13 +45,15 @@ mysql -h 127.0.0.1 -u root -p123456 -e "CREATE DATABASE laravel; GRANT ALL PRIVI
 
 PS: User "myuser" is created by docker-composer according to .env file
 
-## License
+# License
 
 This is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Thanks
-image used in project
+# Thanks
+
+Image used in project
 https://www.freepik.com/free-photo/blue-background-with-six-books-blank-space_1092453.htm
 
-Google API is property of Google
+
+Google and Google API team
 https://developers.google.com/books/docs/v1/using
