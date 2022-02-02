@@ -5,7 +5,9 @@ use App\Http\Controllers\HomeIndexPublicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeIndexPublicController::class)->name('public.index');
-Route::get('/user-area/{isbn}', BookGetUserAreaController::class)->name('user-area.get.isbn');
+Route::get('/user-area/{isbn}', BookGetUserAreaController::class)
+    ->name('user-area.get.isbn')
+    ->middleware(['auth']);
 
 // Route::get('/user-area' // user-area.list list book
 // Route::delete('/user-area/{isbn}', BookDeleteUserAreaController::class) // delete book
