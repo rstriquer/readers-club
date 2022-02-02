@@ -10,7 +10,7 @@ class UserBook extends Model
 {
     use HasFactory;
 
-    public $fillable = ['reading_from', 'reading_to', 'stars'];
+    public $fillable = ['reading_from', 'reading_to', 'rating'];
     protected $casts = [
         'reading_from' => 'date:Y-m-d',
         'reading_to' => 'date:Y-m-d',

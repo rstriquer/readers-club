@@ -28,7 +28,8 @@ class CreateBaseProjectSchema extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('isbn')->nullable()->index();
             $table->string('id_api')->index();
-            $table->foreignId('publisher_id')->constrained();
+            $table->date('published')->nullable();
+            $table->foreignId('publisher_id')->nullable()->constrained();
         });
         Schema::create('author_books', function (Blueprint $table) {
             $table->foreignId('author_id')->constrained();
@@ -39,7 +40,7 @@ class CreateBaseProjectSchema extends Migration
             $table->id();
             $table->date('reading_from')->useCurrent();
             $table->date('reading_to')->nullable()->comment('Can be null for user could be starting the reading');
-            $table->tinyInteger('stars')->comment('User perception of ranking book quality');
+            $table->tinyInteger('rating')->comment('User perception of ranking book quality');
             $table->foreignId('book_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
