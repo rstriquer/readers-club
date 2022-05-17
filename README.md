@@ -1,5 +1,5 @@
 # Laravel Inertia React Book Readers Club
-readers club built in Laravel and React
+Simple Laravel with React project to ilustrate a Readers Club site.
 
 ## Demonstrated features:
 System to illustrate the construction of a Laravel Inertia React application that will consume an API.
