@@ -1,20 +1,21 @@
 version: '3.7'
 
 volumes:
-    mysql:
+    database:
         driver: local
 
 services:
-    mysql:
+    database:
         image: mysql:5.7
         environment:
-          - MYSQL_USER=${DB_USERNAME}
-          - MYSQL_PASSWORD=${DB_PASSWORD}
-          - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+          - MYSQL_DATABASE:${DB_DATABASE:-readers_club_dev}
+          - MYSQL_USER=${DB_USERNAME:-readers_club}
+          - MYSQL_PASSWORD=${DB_PASSWORD:-12345678}
+          - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-12345678}
           - LANG=C.UTF_8
-          - TZ=${DB_TIMEZONE}
+          - TZ=${DB_TIMEZONE:-America/Sao_Paulo}
         volumes:
-          - ${DB_DATA_PATH}/mysql:/var/lib/mysql
+          - ${DB_DATA_PATH:-./storage/docker}/mysql:/var/lib/mysql
         ports:
           - "${DB_PORT}:3306"
         command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--skip-character-set-client-handshake']
