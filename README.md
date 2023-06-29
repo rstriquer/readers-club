@@ -1,35 +1,48 @@
 # Laravel Inertia React Book Readers Club
+
 Simple Laravel with React project to ilustrate a Readers Club site.
 
 ## Demonstrated features:
+
 System to illustrate the construction of a Laravel Inertia React application that will consume an API.
-- Use of translate;
-- Consumes Google Book API;
-- Makes use of the "(Laravel) contracts pattern" enabling easy future partner changes;
-- Illustrates use of some relations structures from Laravel/Eloquent ORM;
-- Implements feature test of route;
-- Integration of Ract components to old blade format template;
-- Use of Laravel fortify package;
+
+-   Use of translate;
+-   Consumes Google Book API;
+-   Makes use of the "(Laravel) contracts pattern" enabling easy future partner changes;
+-   Illustrates use of some relations structures from Laravel/Eloquent ORM;
+-   Implements feature test of route;
+-   Integration of Ract components to old blade format template;
+-   Use of Laravel fortify package;
 
 # How to use
 
 Just read "how to install" and use as a normal laravel project
 
 ## Pre requisitos
-* Docker 20 (or higher)
-* docker-compose
-* php 8.0
-* Composer 2
+
+-   Docker 20 (or higher)
+-   docker-compose
+-   php 8.0
+-   Composer 2
 
 ## How to install
 
 Run the following command sequence:
-* clone the project using git
-* copy .env.example to .env and set the values
-* Set up your database (read the "set the database" item for details)
-* run ```./artisan key:generate```
-* run ```./artisan migrate:install```
-* run ```./artisan migrate```
+
+-   clone the project using git
+-   copy .env.example to .env and set the values
+-   Set up your database (read the "set the database" item for details)
+-   run `./artisan key:generate`
+-   run `./artisan migrate:install`
+-   run `./artisan migrate`
+-   run `npm install`
+-   run `npm run install`
+
+After this sequence you have a fully functional application on your local you
+can just run `docker-compose up -d` to got it running
+
+If you will update anything on the front-end it is recommended to run
+`npm run watch` to watch for changes
 
 ## Set the database
 
@@ -53,7 +66,6 @@ This is open-sourced software licensed under the [MIT license](https://opensourc
 
 Image used in project
 https://www.freepik.com/free-photo/blue-background-with-six-books-blank-space_1092453.htm
-
 
 Google and Google API team
 https://developers.google.com/books/docs/v1/using
